@@ -149,8 +149,8 @@ rect(sprites[vn],sprites[vn+1],sprites[vn+2],sprites[vn+3]);if (titlescreen==fal
 
 function cd(){
 while(dn/5<sprite_number){
-mathx=Math.abs(sprites[vn]-sprites[dn]);
-mathy=Math.abs(sprites[vn+1]-sprites[dn+1]);
+mathx=abs(sprites[vn]-sprites[dn]);
+mathy=abs(sprites[vn+1]-sprites[dn+1]);
 if (sprites[vn+4]=="wall"){}else{
 if (mathx>sprites[dn+2]/1.2){}else{if (mathy>sprites[dn+3]/1.2){}else{
 if (sprites[vn+4]=="coin"){
@@ -220,8 +220,8 @@ vn=0;
 }
 function hitc(){
 while(dn/5<6){
-mathx=Math.abs(c[vn]-c[dn]);
-mathy=Math.abs(c[vn+1]-c[dn+1]);
+mathx=abs(c[vn]-c[dn]);
+mathy=abs(c[vn+1]-c[dn+1]);
 if (mathy>c[dn+3]){}else{
 if (mathx>c[dn+2]){}else{
 if (titlescreen==false){
