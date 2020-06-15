@@ -1,6 +1,6 @@
-float gameover=false;
-float swap;
-float sprites=[
+var gameover=false;
+var swap;
+var sprites=[
 200,
 150,
 50,
@@ -46,22 +46,22 @@ float sprites=[
 20,
 20,
 "coin"];
-float time=0;
-float coins=0;
-float collider=true;
-float vn=0;
-float sprite_number=10;
-float dn=0;
-float mathx=0;
-float mathy=0;
-float titlescreen=true;
-void setup() {
+var time=0;
+var coins=0;
+var collider=true;
+var vn=0;
+var sprite_number=10;
+var dn=0;
+var mathx=0;
+var mathy=0;
+var titlescreen=true;
+function setup() {
 frameRate(60);
 rectMode(CENTER);
 textAlign(CENTER);
- size(400,625);
+createCanvas(400,625);
 }
-void so(){
+function so(){
 sprites=[
 200,
 150,
@@ -110,7 +110,7 @@ sprites=[
 "coin"];
 time=1200;
 }
-void draw() {
+function draw() {
 noStroke();
  background(0,0,255);
 if (titlescreen==true)
@@ -135,7 +135,7 @@ visual();
 controller();
 collider=false;}
 
-void visual(){
+function visual(){
 while(vn/5<sprite_number+1){
 fill("blue");
 if (sprites[vn+4]=="player"){if (titlescreen==false){sprites[vn+1]+=1;fill(255,0,255);}else{fill(0,0,255);}}
@@ -147,10 +147,10 @@ rect(sprites[vn],sprites[vn+1],sprites[vn+2],sprites[vn+3]);if (titlescreen==fal
       vn+=5;}
       vn=0;}
 
-void cd(){
+function cd(){
 while(dn/5<sprite_number){
-mathx=abs(sprites[vn]-sprites[dn]);
-mathy=abs(sprites[vn+1]-sprites[dn+1]);
+mathx=Math.abs(sprites[vn]-sprites[dn]);
+mathy=Math.abs(sprites[vn+1]-sprites[dn+1]);
 if (sprites[vn+4]=="wall"){}else{
 if (mathx>sprites[dn+2]/1.2){}else{if (mathy>sprites[dn+3]/1.2){}else{
 if (sprites[vn+4]=="coin"){
@@ -171,7 +171,7 @@ sprites[vn+1]-=5;collider=true;}}
 }}}}
 dn+=5;}
  dn=0;}
-void controller(){
+function controller(){
 fill(0,255,0);
 rect(350,450,40,40);
 rect(60,450,40,40);
@@ -218,11 +218,10 @@ hitc();}
 dn=0;
 vn=0;
 }
-
-void hitc(){
+function hitc(){
 while(dn/5<6){
-mathx=abs(c[vn]-c[dn]);
-mathy=abs(c[vn+1]-c[dn+1]);
+mathx=Math.abs(c[vn]-c[dn]);
+mathy=Math.abs(c[vn+1]-c[dn+1]);
 if (mathy>c[dn+3]){}else{
 if (mathx>c[dn+2]){}else{
 if (titlescreen==false){
